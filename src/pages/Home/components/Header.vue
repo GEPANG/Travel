@@ -26,42 +26,44 @@ export default {
 // @import '../../../assets/styles/varibles.styl'
 //这里的'~@'--表示src目录
 @import '~@/assets/styles/varibles.styl'
-    #header{
-        height:0.86rem
-        line-height 0.86rem
-        display: flex
-        background $bgColor
-        color #fff
-        .header-left{
-            float left
-            width .64rem
-            margin-left .1rem
-            .back-icon{
-                text-align center      
-                font-size .4rem
-            }
-        }
-        .header-input{
-            flex 1
-            margin-top .12rem
-            margin-left .2rem
-            height .62rem    
-            line-height .62rem
-            text-indent .08rem  
-            background #fff
-            color #ccc
-            border-radius .1rem
-        }
-        .header-right{
-            float right 
-            width 1.24rem
-            text-align center
+#header{
+    height:0.86rem
+    line-height 0.86rem
+    display: flex
+    background $bgColor
+    color #fff
+    .header-left{
+        float left
+        width .64rem
+        margin-left .1rem
+        .back-icon{
+            text-align center      
+            font-size .4rem
             cursor pointer
-            .arrow-icon{
-                margin-left .08rem
-                font-size .24rem
-            }
         }
     }
+    .header-input{
+        flex 1
+        margin-top .12rem
+        margin-left .2rem
+        height .62rem    
+        line-height .62rem
+        text-indent .08rem  
+        background #fff
+        color #ccc
+        border-radius .1rem
+    }
+    .header-right{
+        float right 
+        width 1.24rem
+        text-align center
+        cursor pointer
+        .arrow-icon{
+            cursor pointer
+            margin-left .08rem
+            font-size .24rem
+        }
+    }
+}
 </style>
     

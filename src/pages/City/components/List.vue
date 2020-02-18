@@ -6,22 +6,7 @@
                 <div class="button-list">
                     <div class="button-wrapper">                    
                         <div class="button">北京</div>    
-                    </div>     
-                    <div class="button-wrapper">                    
-                        <div class="button">北京</div>    
-                    </div>     
-                    <div class="button-wrapper">                    
-                        <div class="button">北京</div>    
-                    </div>   
-                    <div class="button-wrapper">                    
-                        <div class="button">北京</div>    
-                    </div>   
-                    <div class="button-wrapper">                    
-                        <div class="button">北京</div>    
-                    </div> 
-                    <div class="button-wrapper">                    
-                        <div class="button">北京</div>    
-                    </div>              
+                    </div>                        
                 </div>
             </div>
 
@@ -34,7 +19,10 @@
                 </div>
             </div>
 
-            <div class="area" v-for="(item,key) of cities" :key='key'>
+            <div class="area" 
+                 v-for="(item,key) of cities" :key='key'
+                 :ref='key'
+            >
                 <div class="title">{{key}}</div>
                 <div class="item-list" v-for="innerItem of item" :key='innerItem.id'>
                     <div class="item">{{innerItem.name}}</div>
@@ -49,7 +37,8 @@ export default {
     name:'list',
     props:{
         cities:Object,
-        hotCities:Array
+        hotCities:Array,
+        letter:String
     },
     mounted(){
        /*  var wrapper = document.getElementById('wrapper');
@@ -60,6 +49,17 @@ export default {
         this.scroll=myScroll */
         //通过ref来设置
         this.scroll=new Bscroll(this.$refs.wrapper)
+    },
+    watch:{
+        letter(){
+            if(this.letter){
+                // const element=this.$refs[this.letter]
+                // console.log(element)//返回数组
+                const element=this.$refs[this.letter][0]
+                //这里的参数必须是一个dom元素或dom选择器
+                this.scroll.scrollToElement(element)
+            }
+        }
     }
 }
 </script>

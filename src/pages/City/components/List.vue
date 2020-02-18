@@ -24,59 +24,22 @@
                     </div>              
                 </div>
             </div>
+
             <div class="area">
                 <div class="title">热门城市</div>
                 <div class="button-list">
-                    <div class="button-wrapper">                    
-                        <div class="button">北京</div>    
-                    </div>     
-                    <div class="button-wrapper">                    
-                        <div class="button">北京</div>    
-                    </div>     
-                    <div class="button-wrapper">                    
-                        <div class="button">北京</div>    
-                    </div>   
-                    <div class="button-wrapper">                    
-                        <div class="button">北京</div>    
-                    </div>    
-                    <div class="button-wrapper">                    
-                        <div class="button">北京</div>    
-                    </div> 
-                    <div class="button-wrapper">                    
-                        <div class="button">北京</div>    
-                    </div>             
+                    <div class="button-wrapper" v-for="item of hotCities" :key='item.id'>                    
+                        <div class="button">{{item.name}}</div>    
+                    </div>                         
                 </div>
             </div>
-            <div class="area">
-                <div class="title">A</div>
-                <div class="item-list">
-                    <div class="item">阿拉尔</div>
-                    <div class="item">阿拉尔</div>
-                    <div class="item">阿拉尔</div>
-                    <div class="item">阿拉尔</div>
-                    <div class="item">阿拉尔</div>
+
+            <div class="area" v-for="(item,key) of cities" :key='key'>
+                <div class="title">{{key}}</div>
+                <div class="item-list" v-for="innerItem of item" :key='innerItem.id'>
+                    <div class="item">{{innerItem.name}}</div>
                 </div>
-            </div>
-            <div class="area">
-                <div class="title">A</div>
-                <div class="item-list">
-                    <div class="item">阿拉尔</div>
-                    <div class="item">阿拉尔</div>
-                    <div class="item">阿拉尔</div>
-                    <div class="item">阿拉尔</div>
-                    <div class="item">阿拉尔</div>
-                </div>
-            </div>
-            <div class="area">
-                <div class="title">A</div>
-                <div class="item-list">
-                    <div class="item">阿拉尔</div>
-                    <div class="item">阿拉尔</div>
-                    <div class="item">阿拉尔</div>
-                    <div class="item">阿拉尔</div>
-                    <div class="item">阿拉尔</div>
-                </div>
-            </div>
+            </div>        
         </div>
     </div>
 </template>
@@ -84,6 +47,10 @@
 import Bscroll from 'better-scroll'
 export default {
     name:'list',
+    props:{
+        cities:Object,
+        hotCities:Array
+    },
     mounted(){
        /*  var wrapper = document.getElementById('wrapper');
         var myScroll = new Bscroll(wrapper,{

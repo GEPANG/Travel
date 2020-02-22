@@ -24,12 +24,7 @@ export default {
     name:"HomeRecommend",
     props:{
         recommendList:Array
-    },
-    data(){
-        return {
-            
-        }
-    }    
+    }
 }
 </script>
 <style lang="stylus" scoped>
